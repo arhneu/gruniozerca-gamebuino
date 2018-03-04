@@ -172,15 +172,15 @@ void loop(){
            if(option == 3) gb.changeGame();
           //Game start
            if(option == 0){ start = 0;
-           gb.popup(F("Ruszaj, Grunio!"), 20);
+           gb.popup(F("Go, Grunio!"), 20);
            }
        }
-           gb.display.println("Wybierz opcje:");
+           gb.display.println("Main menu:");
            gb.display.println(" ");
-           gb.display.println("   NOWA GRA");
-           gb.display.println("   AUTORZY");
-           gb.display.println("   INSTRUKCJE");
-           gb.display.println("   KONIEC GRY");
+           gb.display.println("   NEW GAME");
+           gb.display.println("   CREDITS");
+           gb.display.println("   HOW TO PLAY");
+           gb.display.println("   EXIT GAME");
            //gb.display.println(konami); <- konami code debug
            gb.display.print("         : ");
            gb.display.println(topscore);
@@ -223,9 +223,9 @@ void loop(){
     }else if(start == 2){
            gb.display.println("Gruniozerca GBuino");
            gb.display.println(" ");
-           gb.display.println("Kod,gfx: Dark Archon");
+           gb.display.println("Code,gfx: Dark Archon");
            gb.display.println("Logo: Neko");
-           gb.display.println("Koncept: Dizzy9");
+           gb.display.println("Concept: Dizzy9");
            gb.display.println(" ");
            gb.display.println("WWW: ARHN.EU");
            gb.display.println("\25 - MENU");
@@ -235,21 +235,21 @@ void loop(){
               start = 1;              
            }
     }else if(start == 3){
-        gb.display.println("Grunio jest glodny!");
-        gb.display.println("Jedz marchewki");
-        gb.display.println("i zbieraj punkty.");
+        gb.display.println("Grunio's peckish!");
+        gb.display.println("Eat carrots and");
+        gb.display.println("collect points.");
         gb.display.println(" ");
-        gb.display.println("Przycisk \25 koloruje");
-        gb.display.println("Grunia, by dopasowac");
-        gb.display.println("go do warzywa.");
-        gb.display.println("Smacznego! Mlem!");
+        gb.display.println("Use \25 to match");
+        gb.display.println("Grunio's color to");
+        gb.display.println("vegetables.");
+        gb.display.println("Enjoy! Mlem!");
 
         //polish ogonki
         //ł
-        gb.display.drawPixel(52, 2);
-        gb.display.drawPixel(54, 2);
+        //gb.display.drawPixel(52, 2);
+        //gb.display.drawPixel(54, 2);
         //ć
-        gb.display.drawPixel(78, 30);
+        //gb.display.drawPixel(78, 30);
         
         
         if(gb.buttons.pressed(BTN_A)){
@@ -364,7 +364,7 @@ void loop(){
           lives = lives - 1;
           carrots = 0;
           gb.sound.playCancel();
-          gb.popup(F("Nieeeee!"), 20);
+          gb.popup(F("Noooooo!"), 20);
        }
       if(lives == 0){
        alive = 0;
@@ -382,19 +382,19 @@ void loop(){
     gb.display.drawBitmap(-7, -14, logo, NOROT, NOFLIP);
     gb.display.cursorX = 44;
     gb.display.cursorY = 6;
-    gb.display.println("KONIEC GRY!");
+    gb.display.println("GAME OVER!");
     gb.display.cursorX = 44;
-    gb.display.print("Wynik: ");
+    gb.display.print("Score: ");
     gb.display.println(score);
     
     gb.display.cursorY = 24;
     gb.display.cursorX = 0;
     if(score == topscore){
-      gb.display.println("!NOWY GRUNIO REKORD!");
+      gb.display.println("!NEW HIGH SCORE!");
     }else{
       gb.display.println(" ");
     }
-    gb.display.print("Rekord: ");
+    gb.display.print("High: ");
     gb.display.println(topscore);
     gb.display.println(" ");
     gb.display.print("\26 - RESTART  \27 - MENU");
@@ -408,7 +408,7 @@ void loop(){
       carrots = 0;
       gcolor = 0;
       alive = 1;
-      if(gb.buttons.pressed(BTN_B)) gb.popup(F("Jeszcze raz, Guno!"), 20);
+      if(gb.buttons.pressed(BTN_B)) gb.popup(F("Play it again, Guno!"), 20);
       if(gb.buttons.pressed(BTN_C)) start = 1;
     }
     
